@@ -7,6 +7,7 @@ on:
 
 permissions: 
   contents: write
+  actions: read
 
 jobs: 
   log_time:
@@ -30,4 +31,4 @@ jobs:
           git config --global user.email "github-actions@github.com"
           git add log.txt
           git commit -m "Update log file with new timestamp" || echo "No changes to commit"
-          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/kevinmlisboa/LinuxEssential.git
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
